@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — charcoal surfaces with high-contrast, light text */
+  --color-stone-50: #111827;
+  --color-stone-100: #1F2937;
+  --color-stone-300: #374151;
+  --color-line: #4B5563;
+  --color-ink: #F9FAFB;
+  --color-ink-soft: #D1D5DB;
+  --color-structure: #A7D7BF;
+  --color-structure-dim: #7DBB9D;
+  --color-brick: #F0A184;
+
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-ui: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-stone-50);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+}
+
+::selection {
+  background-color: var(--color-structure);
+  color: var(--color-stone-50);
+}
