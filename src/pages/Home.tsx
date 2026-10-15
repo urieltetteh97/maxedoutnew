@@ -98,14 +98,14 @@ function Home() {
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/15" />
 
-        <div className="relative mx-auto w-full max-w-6xl px-6 pb-32 pt-36 sm:pb-36">
+        <div className="relative text-center mx-auto w-full max-w-6xl px-6 pb-32 sm:pb-36">
           <p className="font-ui text-sm font-medium tracking-wide text-white/80">
             Maxed Out Studios
           </p>
           <h1 className="mt-3 max-w-4xl font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
             Architectural news, portfolio work, and practical resources in one place.
           </h1>
-          <p className="mt-6 max-w-xl font-body text-lg leading-relaxed text-white/85 sm:text-xl">
+          <p className="mt-6 max-w-xl text-center font-body text-lg leading-relaxed text-white/85 sm:text-xl">
             A working reference for the profession — what's changing in the field, what's been built, and what's useful on the next project.
           </p>
         </div>
