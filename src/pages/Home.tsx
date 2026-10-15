@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const slides = [
   {
@@ -21,33 +22,33 @@ const slides = [
 const sections = [
   {
     label: 'Architecture',
+    to: '/news',
     image:
       'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2400&q=85',
-    alt: 'Modern architecture surrounded by trees',
   },
   {
     label: 'Animation',
+    to: '/animation',
     image:
       'https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=2400&q=85',
-    alt: 'Colorful digital light installation',
   },
   {
     label: 'Resources',
+    to: '/resources',
     image:
       'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=2400&q=85',
-    alt: 'Notebook and writing tools on a desk',
   },
   {
     label: 'Games',
+    to: '/games',
     image:
       'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2400&q=85',
-    alt: 'Video game controller in colorful light',
   },
   {
     label: 'News',
+    to: '/news',
     image:
       'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=2400&q=85',
-    alt: 'Newspapers laid out for reading',
   },
 ]
 
@@ -156,14 +157,16 @@ function Home() {
 
       <div className="w-full">
         {sections.map((section) => (
-          <section
+          <Link
             key={section.label}
-            aria-label={section.label}
-            className="group relative isolate flex min-h-64 items-center overflow-hidden bg-stone-300 sm:min-h-80"
+            to={section.to}
+            aria-label={`Explore ${section.label}`}
+            className="group relative isolate flex min-h-64 items-center overflow-hidden bg-stone-300 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white sm:min-h-80"
           >
             <img
               src={section.image}
-              alt={section.alt}
+              alt=""
+              aria-hidden="true"
               loading="lazy"
               className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
             />
@@ -171,7 +174,7 @@ function Home() {
             <h2 className="mx-auto w-full max-w-6xl px-6 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               {section.label}
             </h2>
-          </section>
+          </Link>
         ))}
       </div>
     </>

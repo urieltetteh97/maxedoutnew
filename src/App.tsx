@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import News from './pages/News'
 import Portfolio from './pages/Portfolio'
 import Resources from './pages/Resources'
+import IndustryUpdates from './pages/IndustryUpdates'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path="news" element={<News />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="resources" element={<Resources />} />
+          <Route path="animation" element={<IndustryUpdates topic="animation" />} />
+          <Route path="games" element={<IndustryUpdates topic="games" />} />
         </Route>
       </Routes>
     </BrowserRouter>
