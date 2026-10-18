@@ -25,9 +25,9 @@ export interface Resource {
 export const articles: Article[] = [
   {
     id: 'timber-highrise-oslo',
-    title: 'Oslo approves its first timber high-rise',
-    dek: 'A 22-storey mass-timber tower clears final review, signalling a shift in Nordic building codes.',
-    date: '2026-08-14',
+    title: 'How 21st-century glue is helping to finish Antoni Gaudí’s masterpiece',
+    dek: 'An innovative modular construction system and 24 tonnes of structural adhesive have dramatically accelerated work on Gaudí’s Sagrada Familia. More than 140 years after construction began, the Barcelona basilica is reaching one of the defining milestones in its extraordinary history.',
+    date: '2026-09-26',
     category: 'Policy',
   },
   {
