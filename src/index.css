@@ -27,3 +27,62 @@ body {
   background-color: var(--color-structure);
   color: var(--color-stone-50);
 }
+
+.shimmer-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: var(--color-stone-300);
+}
+
+.shimmer-image.absolute {
+  position: absolute;
+}
+
+.shimmer-image__placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    var(--color-stone-100) 20%,
+    var(--color-stone-300) 38%,
+    var(--color-stone-100) 56%
+  );
+  background-size: 200% 100%;
+  animation: image-shimmer 1.5s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 350ms ease;
+}
+
+.shimmer-image__img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 450ms ease;
+}
+
+.shimmer-image.is-loaded .shimmer-image__placeholder {
+  opacity: 0;
+}
+
+.shimmer-image.is-loaded .shimmer-image__img {
+  opacity: 1;
+}
+
+@keyframes image-shimmer {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-image__placeholder {
+    animation: none;
+    background-position: 0;
+  }
+
+  .shimmer-image__placeholder,
+  .shimmer-image__img {
+    transition: none;
+  }
+}

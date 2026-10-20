@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Reveal from '../components/ui/Reveal'
+import ShimmerImage from '../components/ui/ShimmerImage'
 
 const slides = [
   {
@@ -87,19 +89,21 @@ function Home() {
         onMouseLeave={() => setIsHovered(false)}
       >
         {slides.map((slide, index) => (
-          <img
+          <ShimmerImage
             key={slide.image}
             src={slide.image}
             alt={slide.alt}
             aria-hidden={activeSlide !== index}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 motion-reduce:transition-none ${
+            loading={index === 0 ? 'eager' : 'lazy'}
+            className={`absolute inset-0 transition-opacity duration-1000 motion-reduce:transition-none ${
               activeSlide === index ? 'opacity-100' : 'opacity-0'
             }`}
+            imageClassName="h-full w-full object-cover"
           />
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/15" />
 
-        <div className="relative text-center mx-auto w-full max-w-6xl px-6 pb-32 sm:pb-36">
+        <Reveal className="relative mx-auto w-full max-w-6xl px-6 pb-32 text-center sm:pb-36">
           <p className="font-ui text-sm font-medium tracking-wide text-white/80">
             Maxed Out Studios
           </p>
@@ -109,7 +113,7 @@ function Home() {
           <p className="mt-6 max-w-xl text-center font-body text-lg leading-relaxed text-white/85 sm:text-xl">
             A working reference for the profession — what's changing in the field, what's been built, and what's useful on the next project.
           </p>
-        </div>
+        </Reveal>
 
         <div className="absolute inset-x-0 bottom-0 mx-auto flex max-w-6xl items-center justify-between px-6 pb-8">
           <div className="flex items-center gap-3" aria-label="Choose a slide">
@@ -156,25 +160,27 @@ function Home() {
       </section>
 
       <div className="w-full">
-        {sections.map((section) => (
-          <Link
-            key={section.label}
-            to={section.to}
-            aria-label={`Explore ${section.label}`}
-            className="group relative isolate flex min-h-64 items-center overflow-hidden bg-stone-300 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white sm:min-h-80"
-          >
-            <img
-              src={section.image}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
-            />
-            <div className="absolute inset-0 -z-10 bg-slate-950/45 transition-colors group-hover:bg-slate-950/55" />
-            <h2 className="mx-auto w-full max-w-6xl px-6 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              {section.label}
-            </h2>
-          </Link>
+        {sections.map((section, index) => (
+          <Reveal key={section.label} delay={index * 0.04}>
+            <Link
+              to={section.to}
+              aria-label={`Explore ${section.label}`}
+              className="group relative isolate flex min-h-64 items-center overflow-hidden bg-stone-300 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white sm:min-h-80"
+            >
+              <ShimmerImage
+                src={section.image}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="absolute inset-0 -z-10"
+                imageClassName="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
+              />
+              <div className="absolute inset-0 -z-10 bg-slate-950/45 transition-colors group-hover:bg-slate-950/55" />
+              <h2 className="mx-auto w-full max-w-6xl px-6 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                {section.label}
+              </h2>
+            </Link>
+          </Reveal>
         ))}
       </div>
     </>

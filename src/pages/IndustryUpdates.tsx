@@ -1,4 +1,6 @@
 import SectionHeading from '../components/ui/SectionHeading'
+import Reveal from '../components/ui/Reveal'
+import ShimmerImage from '../components/ui/ShimmerImage'
 
 const topicPages = {
   animation: {
@@ -69,13 +71,14 @@ function IndustryUpdates({ topic }: IndustryUpdatesProps) {
   return (
     <>
       <section className="relative isolate flex min-h-80 items-end overflow-hidden bg-stone-300 sm:min-h-[26rem]">
-        <img
+        <ShimmerImage
           src={page.image}
           alt={page.imageAlt}
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          className="absolute inset-0 -z-10"
+          imageClassName="h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-slate-950/10" />
-        <div className="mx-auto w-full max-w-6xl px-6 pb-12 pt-24 sm:pb-16">
+        <Reveal className="mx-auto w-full max-w-6xl px-6 pb-12 pt-24 sm:pb-16">
           <p className="font-ui text-sm font-medium tracking-wide text-white/80">
             Technical news &amp; updates
           </p>
@@ -85,7 +88,7 @@ function IndustryUpdates({ topic }: IndustryUpdatesProps) {
           <p className="mt-4 max-w-2xl font-body text-lg leading-relaxed text-white/85 sm:text-xl">
             {page.introduction}
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
@@ -96,19 +99,18 @@ function IndustryUpdates({ topic }: IndustryUpdatesProps) {
         />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {page.topics.map((item) => (
-            <article
-              key={item.title}
-              className="flex flex-col border border-line/60 p-6"
-            >
-              <p className="font-ui text-sm text-structure">{item.category}</p>
-              <h2 className="mt-3 font-display text-xl font-semibold text-ink">
-                {item.title}
-              </h2>
-              <p className="mt-3 font-body text-base leading-relaxed text-ink-soft">
-                {item.description}
-              </p>
-            </article>
+          {page.topics.map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.08}>
+              <article className="flex h-full flex-col border border-line/60 p-6">
+                <p className="font-ui text-sm text-structure">{item.category}</p>
+                <h2 className="mt-3 font-display text-xl font-semibold text-ink">
+                  {item.title}
+                </h2>
+                <p className="mt-3 font-body text-base leading-relaxed text-ink-soft">
+                  {item.description}
+                </p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
