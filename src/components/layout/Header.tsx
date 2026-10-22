@@ -10,7 +10,7 @@ const links = [
 function Header() {
   return (
     <header className="border-b border-line/60">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <NavLink to="/" className="shrink-0">
           <img
             src={logo}
@@ -24,8 +24,8 @@ function Header() {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `font-ui text-sm transition-colors ${
-                  isActive ? 'text-structure' : 'text-ink-soft hover:text-ink'
+                `rounded-md px-3 py-2 font-ui text-sm transition-colors hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-structure ${
+                  isActive ? 'text-structure' : 'text-ink-soft'
                 }`
               }
             >

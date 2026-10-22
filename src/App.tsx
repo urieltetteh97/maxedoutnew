@@ -5,6 +5,7 @@ import News from './pages/News'
 import Portfolio from './pages/Portfolio'
 import Resources from './pages/Resources'
 import IndustryUpdates from './pages/IndustryUpdates'
+import ProjectDetail from './pages/ProjectDetail'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="news" element={<News />} />
           <Route path="portfolio" element={<Portfolio />} />
+          <Route path="portfolio/:projectId" element={<ProjectDetail />} />
           <Route path="resources" element={<Resources />} />
           <Route path="animation" element={<IndustryUpdates topic="animation" />} />
           <Route path="games" element={<IndustryUpdates topic="games" />} />
