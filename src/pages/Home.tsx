@@ -84,7 +84,7 @@ function Home() {
       <section
         aria-label="Featured architecture"
         aria-roledescription="carousel"
-        className="relative isolate flex min-h-[36rem] items-end overflow-hidden bg-stone-300 sm:min-h-[44rem]"
+        className="relative isolate flex min-h-[36rem] items-center overflow-hidden bg-stone-300 sm:min-h-[44rem]"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -103,7 +103,7 @@ function Home() {
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/15" />
 
-        <Reveal className="relative mx-auto w-full max-w-6xl px-6 pb-32 text-center sm:pb-36">
+        <Reveal className="relative mx-auto w-full max-w-6xl px-6 py-16 text-center sm:py-20">
           <p className="font-ui text-sm font-medium tracking-wide text-white/80">
             Maxed Out Studios
           </p>
