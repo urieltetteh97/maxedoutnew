@@ -165,7 +165,7 @@ function Home() {
             <Link
               to={section.to}
               aria-label={`Explore ${section.label}`}
-              className="group relative isolate flex min-h-64 items-center overflow-hidden bg-stone-300 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white sm:min-h-80"
+              className="group relative isolate flex min-h-64 items-center overflow-hidden bg-stone-300 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-white sm:min-h-80"
             >
               <ShimmerImage
                 src={section.image}
@@ -173,7 +173,7 @@ function Home() {
                 aria-hidden="true"
                 loading="lazy"
                 className="absolute inset-0 -z-10"
-                imageClassName="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
+                imageClassName="h-full w-full object-cover transition-transform duration-900 group-hover:scale-125 motion-reduce:transition-200 group-hover:motion-reduce:scale-100"
               />
               <div className="absolute inset-0 -z-10 bg-slate-950/45 transition-colors group-hover:bg-slate-950/55" />
               <h2 className="mx-auto w-full max-w-6xl px-6 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
